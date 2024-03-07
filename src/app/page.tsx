@@ -1,5 +1,5 @@
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
-import PDFCard from "@/components/ui/pdf/pdf-card.component";
+import PDFCard from "@/components/pdf/pdf-card.component";
 import Image from "next/image";
 import Link from "next/link";
 import { CgMergeVertical } from "react-icons/cg";

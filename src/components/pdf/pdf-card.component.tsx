@@ -1,6 +1,6 @@
 import Link from "next/link";
 import React from "react";
-import { Card, CardContent, CardHeader } from "../card";
+import { Card, CardContent, CardHeader } from "../ui/card";
 import { CgMergeVertical } from "react-icons/cg";
 
 export default function PDFCard({ title, description, icon, href }: any) {
