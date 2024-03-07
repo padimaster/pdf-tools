@@ -12,8 +12,9 @@ import { cn } from '@/lib/utils';
 import React, { useCallback, useState } from 'react';
 import { useDropzone } from 'react-dropzone';
 import { IconType } from 'react-icons';
-import { FaRegFilePdf } from 'react-icons/fa';
+import { FaFileUpload, FaRegFilePdf } from 'react-icons/fa';
 import { IoReload } from 'react-icons/io5';
+import { MdFileDownload } from 'react-icons/md';
 import { Button } from '../ui/button';
 import { Card, CardContent, CardHeader } from '../ui/card';
 
@@ -125,15 +126,21 @@ export default function PDFCard({
           </DrawerHeader>
           <div {...getRootProps()}>
             <input {...getInputProps()} />
-            <div className="border border-dashed p-4 md:p-8">
+            <div className="border border-dashed border-black p-4 md:p-8 rounded-xl">
               {isDragActive ? (
                 <p>Drop the files here ...</p>
               ) : (
-                <p>Drag or drop some files here, or click to select files</p>
+                <p className="text-center">
+                  Drag or drop some files here, or click to select files
+                </p>
               )}
-              {loading && (
+              {loading ? (
                 <div className="flex justify-center items-center mt-4">
                   <IoReload className="animate-spin w-8 h-8" />
+                </div>
+              ) : (
+                <div className="flex justify-center items-center mt-2">
+                  <FaFileUpload className="w-8 h-8" />
                 </div>
               )}
             </div>
@@ -155,8 +162,9 @@ export default function PDFCard({
             )}{' '}
           </div>
 
-          <Button className="mt-4" onClick={handleSubmit}>
-            Submit
+          <Button className="mt-4 p-4" onClick={handleSubmit}>
+            <p className="text-lg">Download</p>
+            <MdFileDownload className="w-6 h-6" />
           </Button>
         </div>
       </DrawerContent>
